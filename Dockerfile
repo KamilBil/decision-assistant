@@ -6,10 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # SQL Server dependencies
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends unixodbc-dev gcc g++ \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk update && apk add --no-cache unixodbc-dev gcc g++ musl-dev
 
 COPY requirements.txt /app/
 RUN pip install --upgrade pip \
