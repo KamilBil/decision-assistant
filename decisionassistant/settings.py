@@ -111,6 +111,14 @@ WSGI_APPLICATION = 'decisionassistant.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    },
+    'azure_sql': {
         'ENGINE': 'mssql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
