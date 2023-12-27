@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-inva^_$_0zzjmb8sl0=9no+o&6h5u++e@2#_*y1uo%0*xe%&sd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ['decision-assistant-test.azurewebsites.net']
+ALLOWED_HOSTS = [config("ALLOWED_HOST")]
 
 
 # Application definition
