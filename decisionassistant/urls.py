@@ -15,10 +15,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
 from django.urls import include, path
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Decision assistan API Documentation",
+      default_version='v1',
+      description="Decision assistant API description",
+      contact=openapi.Contact(email="bilkamil@outlook.com"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('decisionassistant.core.urls')),
     path('', include('decisionassistant.decisiontrees.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
