@@ -59,7 +59,7 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'api_key': {
+        'Bearer': {
             'type': 'apiKey',
             'in': 'header',
             'name': 'Authorization'
